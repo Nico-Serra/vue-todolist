@@ -8,7 +8,21 @@
 </head>
 <body>
     
+    <div id="app">
+        <h1>To Do List</h1>
+         <!-- - Stampiamo una lista nell HTML per ogni todo, SE done è uguale a true visualizziamo il testo del nodo sbarrato -->
+         <ul>
+            <li v-for="(toDo,index) in toDoList" :class="{'completed': toDo.done === true}">
+                <span>{{toDo.text}}</span>
+                <!-- // - Aggiungiamo una x affianco ogni to do e al click rimuove il todo -->
+                <span @click="removeItem(index)">❌</span>
+                
+            </li>
+         </ul>
+    </div>
 
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="./assets/js/app.js"></script>
 </body>
 </html>
