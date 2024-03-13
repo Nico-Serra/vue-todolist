@@ -4,13 +4,16 @@ const {createApp} = Vue;
 
 
 
-// - Aggiungiamo un input con v-model che aggiunge un nuovo oggetto al keyup
-    
+
 
 createApp({
     data() {
         return{
-            //message: 'ciao',
+            //textInput:"",
+            toDoUser: {
+                text: '',
+                done: false,
+            },
             toDoList:[
                 // - Creiamo un array di oggetti e ogni oggetto formato da due proprietà 'text:stringa' e 'done: booleano'
                 {
@@ -19,7 +22,7 @@ createApp({
                 },
                 {
                     text: 'Learn to Laravel',
-                    done: true,
+                    done: false,
                 },
                 {
                     text: 'Learn to Js',
@@ -27,7 +30,7 @@ createApp({
                 },
                 {
                     text: 'Learn to Php',
-                    done: true,
+                    done: false,
                 },
             ]
         }
@@ -35,6 +38,19 @@ createApp({
     methods: {
         removeItem(indexEl){
             this.toDoList.splice(indexEl,1)
+        },
+        addToDoList(){
+            //this.toDoUser.text = this.toDoUser;
+            // this.toDoUser.done = false;
+            //this.toDoUser.text = {...this.textInput}
+            //this.toDoList.unshift(this.toDoUser)
+            
+            //console.log(this.toDoUser);
+            //this.textInput = ''
+            const newToDo = {...this.toDoUser}
+            console.log(newToDo);
+            this.toDoList.unshift(newToDo)
+            this.toDoUser.text = ''
         }
     }
 }).mount('#app')
