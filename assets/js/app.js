@@ -13,6 +13,7 @@ createApp({
             toDoUser: {
                 text: '',
                 done: false,
+                delete: false,
             },
             toDoList:[
                 // - Creiamo un array di oggetti e ogni oggetto formato da due proprietà 'text:stringa' e 'done: booleano'
@@ -51,6 +52,13 @@ createApp({
             console.log(newToDo);
             this.toDoList.unshift(newToDo)
             this.toDoUser.text = ''
+        },
+        reverseDone(toDo){
+            if (toDo.done === true) {
+                toDo.done = false
+            } else /*if (toDo.done === false) */{
+                toDo.done = true
+            }
         }
     }
 }).mount('#app')
